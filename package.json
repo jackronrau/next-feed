@@ -1,0 +1,33 @@
+{
+    "name": "next-feed",
+    "version": "1.0.0",
+    "description": "RSS feed generator for Twitter content",
+    "main": "dist/cli.js",
+    "type": "module",
+    "scripts": {
+      "build": "tsc",
+      "start": "node dist/cli.js",
+      "dev": "tsx src/cli.ts",
+      "test": "tsx src/test.ts"
+    },
+    "dependencies": {
+      "rss": "^1.2.2",
+      "dotenv": "^16.4.5",
+      "fs-extra": "^11.2.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.17",
+        "@types/rss": "^0.0.32",
+        "@types/fs-extra": "^11.0.4",
+        "typescript": "^5.3.3",
+        "tsx": "^4.7.1"
+    },
+    "keywords": [
+        "rss",
+        "twitter",
+        "feed",
+        "automation"
+    ],
+    "author": "",
+    "license": "MIT"
+}
