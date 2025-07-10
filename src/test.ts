@@ -16,7 +16,7 @@ async function testTwitterAPI() {
     const twitterSource = new TwitterSource(apiKey);
 
     // Test with a simple query
-    const testQuery = 'SaaS ("case study" OR "success story") min_faves:25 -is:retweet lang:en';
+    const testQuery = 'SaaS case study';
 
     console.log(`Testing query: ${testQuery}`);
 

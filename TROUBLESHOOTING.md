@@ -54,7 +54,20 @@ Error: 429 Too Many Requests
 - 检查API使用量是否超限
 - 考虑升级API套餐
 
-#### 3.3 网络问题
+#### 3.3 GitHub Pages部署权限错误
+```
+remote: Write access to repository not granted.
+fatal: unable to access 'https://github.com/username/repo.git/': The requested URL returned error: 403
+Error: Action failed with "The process '/usr/bin/git' failed with exit code 128"
+```
+**解决方案**:
+1. 确保仓库设置中Actions有写入权限：
+   - **Settings → Actions → General**
+   - **Workflow permissions** 选择 **Read and write permissions**
+   - 勾选 **Allow GitHub Actions to create and approve pull requests**
+2. 重新运行工作流
+
+#### 3.4 网络问题
 ```
 Error: fetch failed
 ```

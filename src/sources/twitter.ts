@@ -16,31 +16,37 @@ export interface Tweet {
     };
 }
 
-export interface TwitterAPIResponse {
-    data?: {
+export interface TwitterAPITweet {
+    type: string;
+    id: string;
+    url: string;
+    twitterUrl: string;
+    text: string;
+    source: string;
+    retweetCount: number;
+    replyCount: number;
+    likeCount: number;
+    quoteCount: number;
+    viewCount: number;
+    createdAt: string;
+    lang: string;
+    bookmarkCount: number;
+    isReply: boolean;
+    inReplyToId?: string;
+    conversationId: string;
+    inReplyToUserId?: string;
+    inReplyToUsername?: string;
+    author: {
         id: string;
-        text: string;
-        author_id: string;
-        created_at: string;
-        public_metrics: {
-            retweet_count: number;
-            like_count: number;
-            reply_count: number;
-            quote_count: number;
-        };
-        author?: {
-            id: string;
-            name: string;
-            username: string;
-        };
-    }[];
-    includes?: {
-        users?: {
-            id: string;
-            name: string;
-            username: string;
-        }[];
+        name: string;
+        username: string;
+        [key: string]: any;
     };
+    [key: string]: any;
+}
+
+export interface TwitterAPIResponse {
+    tweets: TwitterAPITweet[];
 }
 
 export class TwitterSource {
@@ -77,24 +83,25 @@ export class TwitterSource {
 
             const tweets: Tweet[] = [];
 
-            if (data.data) {
-                for (const tweetData of data.data) {
-                    // Find author info from includes if available
-                    const author = data.includes?.users?.find(
-                        user => user.id === tweetData.author_id
-                    );
-
+            if (data.tweets && Array.isArray(data.tweets)) {
+                for (const tweetData of data.tweets) {
+                    // Convert the API format to our internal format
                     tweets.push({
                         id: tweetData.id,
                         text: tweetData.text,
-                        author_id: tweetData.author_id,
-                        created_at: tweetData.created_at,
-                        public_metrics: tweetData.public_metrics,
-                        author: author ? {
-                            id: author.id,
-                            name: author.name,
-                            username: author.username
-                        } : tweetData.author
+                        author_id: tweetData.author.id,
+                        created_at: tweetData.createdAt,
+                        public_metrics: {
+                            retweet_count: tweetData.retweetCount || 0,
+                            like_count: tweetData.likeCount || 0,
+                            reply_count: tweetData.replyCount || 0,
+                            quote_count: tweetData.quoteCount || 0
+                        },
+                        author: {
+                            id: tweetData.author.id,
+                            name: tweetData.author.name,
+                            username: tweetData.author.username
+                        }
                     });
                 }
             }
