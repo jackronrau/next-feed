@@ -16,7 +16,7 @@ git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
 git push -u origin main
 ```
 
-### 2. 配置GitHub Secrets
+### 2. 配置GitHub Secrets (必须先完成)
 在GitHub仓库设置中添加以下Secret：
 
 **Settings → Secrets and variables → Actions → New repository secret**
@@ -26,16 +26,30 @@ git push -u origin main
 
 ⚠️ **重要**: 绝对不要将API密钥提交到代码仓库中！
 
-### 3. 启用GitHub Pages
+### 3. 手动触发第一次运行
+由于gh-pages分支还不存在，需要先手动运行Actions：
+
+1. 进入仓库 **Actions** 标签页
+2. 点击 **Generate RSS Feeds** 工作流
+3. 点击 **Run workflow** 按钮
+4. 选择 **main** 分支
+5. 点击绿色的 **Run workflow** 按钮
+
+### 4. 等待Actions完成
+- 查看Actions运行状态，确保成功完成
+- 成功后会自动创建gh-pages分支
+- 如果失败，检查API密钥是否正确配置
+
+### 5. 启用GitHub Pages (Actions成功后)
 1. 进入仓库 **Settings → Pages**
 2. Source 选择 **Deploy from a branch**
-3. Branch 选择 **gh-pages**
+3. Branch 选择 **gh-pages** (现在应该可以看到了)
 4. Folder 选择 **/ (root)**
 5. 点击 **Save**
 
-### 4. 运行工作流
+### 6. 后续自动运行
+配置完成后，工作流将：
 - **自动运行**: 每6小时自动执行
-- **手动触发**: Actions → Generate RSS Feeds → Run workflow
 - **代码推送**: 推送到main分支时自动运行
 
 ## 🔄 工作流程说明

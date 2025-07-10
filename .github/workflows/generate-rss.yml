@@ -30,9 +30,15 @@ jobs:
       
     - name: Generate RSS feeds
       env:
+        NODE_ENV: production
         TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
         OUTPUT_DIR: ./public
-      run: npm start
+      run: |
+        echo "🔍 Environment variables check:"
+        echo "NODE_ENV: $NODE_ENV"
+        echo "OUTPUT_DIR: $OUTPUT_DIR"
+        echo "TWITTER_API_KEY: $(if [ -n "$TWITTER_API_KEY" ]; then echo "✅ Set"; else echo "❌ Not set"; fi)"
+        npm start
       
     - name: Create index.html for GitHub Pages
       run: |

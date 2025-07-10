@@ -3,17 +3,28 @@ import { TwitterSource, Tweet } from './sources/twitter.js';
 import { RSSGenerator, RSSConfig } from './outputs/rss.js';
 import { TWITTER_KEYWORDS, getAllCategories } from './keywords/index.js';
 
-// Load environment variables
-dotenv.config();
+// Load environment variables (only in local development)
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
 
 async function main() {
     console.log('🚀 Starting RSS Feed Generator...');
 
     // Check for required environment variables
     const apiKey = process.env.TWITTER_API_KEY;
+
+    // Debug: Show environment info
+    console.log('🔍 Environment check:');
+    console.log(`  - NODE_ENV: ${process.env.NODE_ENV || 'not set'}`);
+    console.log(`  - OUTPUT_DIR: ${process.env.OUTPUT_DIR || 'not set'}`);
+    console.log(`  - TWITTER_API_KEY: ${apiKey ? '✅ Set' : '❌ Not set'}`);
+
     if (!apiKey) {
-      console.error('❌ TWITTER_API_KEY is required in .env file');
-      process.exit(1);
+        console.error('❌ TWITTER_API_KEY is required');
+        console.error('   In local development: Add to .env file');
+        console.error('   In GitHub Actions: Add to repository Secrets');
+        process.exit(1);
     }
 
     const outputDir = process.env.OUTPUT_DIR || './feeds';
