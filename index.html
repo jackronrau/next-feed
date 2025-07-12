@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business & Marketing RSS Feeds</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .feed-list { list-style: none; padding: 0; }
+        .feed-item { margin: 10px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .feed-link { text-decoration: none; color: #0066cc; font-weight: bold; }
+        .feed-desc { color: #666; margin-top: 5px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .last-updated { text-align: center; color: #888; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 Business & Marketing RSS Feeds</h1>
+        <p>Curated tweets about business, marketing, and entrepreneurship</p>
+    </div>
+    
+    <ul class="feed-list">
+        <li class="feed-item">
+            <a href="saas.xml" class="feed-link">SaaS</a>
+            <div class="feed-desc">Software as a Service insights, case studies, and revenue stories</div>
+        </li>
+        <li class="feed-item">
+            <a href="affiliate-marketing.xml" class="feed-link">Affiliate Marketing</a>
+            <div class="feed-desc">Affiliate marketing strategies, income reports, and success stories</div>
+        </li>
+        <li class="feed-item">
+            <a href="seo.xml" class="feed-link">SEO</a>
+            <div class="feed-desc">Search engine optimization tips, case studies, and ranking strategies</div>
+        </li>
+        <li class="feed-item">
+            <a href="paid-advertising.xml" class="feed-link">Paid Advertising</a>
+            <div class="feed-desc">Facebook, Google, and other paid advertising insights</div>
+        </li>
+        <li class="feed-item">
+            <a href="e-commerce.xml" class="feed-link">E-commerce</a>
+            <div class="feed-desc">Dropshipping, Amazon FBA, and online store success stories</div>
+        </li>
+        <li class="feed-item">
+            <a href="creator-economy.xml" class="feed-link">Creator Economy</a>
+            <div class="feed-desc">Content creation, monetization, and influencer marketing</div>
+        </li>
+        <li class="feed-item">
+            <a href="ai-technology.xml" class="feed-link">AI & Technology</a>
+            <div class="feed-desc">AI tools, tech startups, and automation for business</div>
+        </li>
+    </ul>
+    
+    <div class="last-updated">
+        <p>Last updated: <span id="lastUpdate"></span></p>
+        <p>Feeds update every 6 hours</p>
+    </div>
+    
+    <script>
+        document.getElementById('lastUpdate').textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html>
