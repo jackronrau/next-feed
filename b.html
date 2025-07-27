@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        fetch("https://www.blackhatworld.com/search/search", {
+  "headers": {
+    "accept": "application/json",
+    "accept-language": "zh-CN,zh;q=0.9",
+    "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryxH9AH85n8asqdblZ",
+    "priority": "u=1, i",
+    "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\"",
+    "sec-ch-ua-arch": "\"x86\"",
+    "sec-ch-ua-bitness": "\"64\"",
+    "sec-ch-ua-full-version": "\"140.0.7320.0\"",
+    "sec-ch-ua-full-version-list": "\"Chromium\";v=\"140.0.7320.0\", \"Not=A?Brand\";v=\"24.0.0.0\", \"Google Chrome\";v=\"140.0.7320.0\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-model": "\"\"",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-ch-ua-platform-version": "\"10.0.0\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-requested-with": "XMLHttpRequest",
+    "cookie": "_ga=GA1.1.968538537.1753585988; xf_notice_dismiss=-1; xf_csrf=yd8XOJBIXCDMTDcQ; xf_session=JxRraKR8gNtWtAccXGnX0sRlOi0jjAoh; _ga_VH2PZEKYEE=GS2.1.s1753601117$o3$g1$t1753602325$j59$l0$h0",
+    "Referer": "https://www.blackhatworld.com/search/?type=post"
+  },
+  "body": "------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"_xfToken\"\r\n\r\n1753602185,dc8dadea6a4040c4cce1a37f67b28f6b\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"keywords\"\r\n\r\ncontent farm\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"c[users]\"\r\n\r\n\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"c[newer_than]\"\r\n\r\n\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"c[older_than]\"\r\n\r\n\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"c[min_reply_count]\"\r\n\r\n0\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"c[child_nodes]\"\r\n\r\n1\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"order\"\r\n\r\nrelevance\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"search_type\"\r\n\r\npost\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"_xfResponseType\"\r\n\r\njson\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"_xfWithData\"\r\n\r\n1\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"_xfRequestUri\"\r\n\r\n/search/?type=post\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ\r\nContent-Disposition: form-data; name=\"_xfToken\"\r\n\r\n1753602185,dc8dadea6a4040c4cce1a37f67b28f6b\r\n------WebKitFormBoundaryxH9AH85n8asqdblZ--\r\n",
+  "method": "POST"
+}).then(res => res.json()).then(data => {
+    document.body.innerHTML = JSON.stringify(data);
+})
+    </script>
+</head>
+<body>
+
+</body>
+</html>
